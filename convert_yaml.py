@@ -4,14 +4,14 @@ import yaml
 def parse_indice_to_yaml(file_path):
     # Estrutura para armazenar o índice
     indice = {}
-
+    
     # Função auxiliar para inserir itens de forma hierárquica
     def insert_into_dict(d, keys, value):
         for key in keys[:-1]:
             d = d.setdefault(key, {})
         d[keys[-1]] = value
 
-    # Variáveis para armazenar contexto
+    # Variáveis para armazenar o contexto
     current_context = []
     last_key_without_code = None
 
@@ -44,21 +44,22 @@ def parse_indice_to_yaml(file_path):
                 indent_level = (len(line) - len(line.lstrip())) // 4
                 title = line.strip()
 
-                if indent_level == len(current_context):
-                    # Se for no mesmo nível hierárquico, atualiza o contexto
-                    last_key_without_code = title
-                else:
-                    # Atualiza o contexto hierárquico e armazena a chave sem código
+                # Atualiza a última chave sem código
+                if indent_level <= len(current_context):
+                    # Quando encontramos uma nova chave, reinicia o contexto a partir deste ponto
                     current_context = current_context[:indent_level]
-                    last_key_without_code = title
+                
+                # Atribui a nova chave sem código ao contexto
+                last_key_without_code = title
+                current_context.append(last_key_without_code)
 
     # Converte a estrutura em YAML
     yaml_output = yaml.dump(indice, allow_unicode=True, sort_keys=False)
 
-    # Salva o resultado em um novo arquivo
+    # Salva o resultado em um novo arquivo YAML
     with open('indice.yaml', 'w', encoding='utf-8') as yaml_file:
         yaml_file.write(yaml_output)
 
 # Caminho do arquivo de entrada
-file_path = 'indice.txt'
+file_path = '/mnt/data/indice.txt'
 parse_indice_to_yaml(file_path)
