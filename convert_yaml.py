@@ -61,5 +61,5 @@ def parse_indice_to_yaml(file_path):
         yaml_file.write(yaml_output)
 
 # Caminho do arquivo de entrada
-file_path = '/mnt/data/indice.txt'
+file_path = 'indice.txt'
 parse_indice_to_yaml(file_path)
