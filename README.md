@@ -1,14 +1,4 @@
-Excelente iniciativa\! Transformar a Classificação Decimal de Direito (CDDir) em um arquivo JSON é um passo muito útil para a comunidade de direito e tecnologia. Um `README.md` bem escrito é fundamental para que outras pessoas descubram e utilizem seu projeto.
 
-Com base no que você me disse, preparei uma sugestão de estrutura e texto para o seu `README.md`. Você pode copiar, colar e adaptar conforme achar melhor.
-
------
-
-### Sugestão para o `README.md`
-
-Você pode copiar o texto abaixo e colar diretamente no seu arquivo `README.md` no GitHub.
-
-````markdown
 # Classificação Decimal de Direito (CDDir) em JSON
 
 ![Licença](https://img.shields.io/badge/licença-MIT-blue.svg) Este repositório contém a **Classificação Decimal de Direito (CDDir)**, um sistema de classificação bibliográfica para a área jurídica, em um formato JSON estruturado e de fácil utilização.
